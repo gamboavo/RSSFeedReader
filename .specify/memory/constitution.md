@@ -1,50 +1,45 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+
+<!--
+Sync Impact Report
+Version change: template → 1.0.0
+Modified principles: all template placeholders replaced
+Added sections: Technology Stack & Constraints, Development Workflow
+Removed sections: none
+Templates requiring updates: plan-template.md (✅ aligned), spec-template.md (✅ aligned), tasks-template.md (✅ aligned)
+Follow-up TODOs: TODO(RATIFICATION_DATE): Set original ratification date if known
+-->
+
+# RSSFeedReader Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Security-First
+All code MUST be designed and implemented to minimize security risks. Input validation, safe data handling, and secure defaults are required for all features. Dependencies MUST be kept up-to-date and reviewed for vulnerabilities.
+Rationale: Protects user data and system integrity, especially as the app may handle external feeds and user input.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Maintainability
+Code MUST be clear, modular, and well-documented. Refactoring is encouraged. Features should be independently testable and changes must not introduce regressions.
+Rationale: Ensures long-term sustainability and ease of future enhancements.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Code Quality
+All code MUST pass automated tests and code review before merging. Adhere to language and framework best practices (C#, .NET, Blazor). Use consistent formatting and naming conventions.
+Rationale: High code quality reduces bugs and accelerates development.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Simplicity & MVP Discipline
+Features MUST be implemented in the simplest way that delivers user value. MVP scope is strictly enforced: start with subscription management, then incrementally add feed fetching and display. Avoid premature optimization and unnecessary complexity.
+Rationale: Enables rapid delivery and clear user value, supporting incremental improvement.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Technology Alignment
+All implementation MUST align with the chosen tech stack: ASP.NET Core Web API backend, Blazor WebAssembly frontend, C# language, and SQLite for persistence. Shared code and separation of concerns are required.
+Rationale: Ensures compatibility, cross-platform support, and future scalability.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Technology Stack & Constraints
+The project uses ASP.NET Core Web API and Blazor WebAssembly for rapid, cross-platform development. MVP stores data in memory; future versions may use SQLite and EF Core. All code must be compatible with C# 8.0+, .NET 8.0+, and run on Windows, macOS, and Linux. No background polling in MVP; manual refresh only.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Development Workflow
+All features are developed incrementally, starting with MVP scope. Each feature must have independent user stories and acceptance tests. Code review and automated testing are mandatory before merging. Documentation must be updated with every change.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+This constitution supersedes all other practices. Amendments require documentation, approval, and a migration plan. All PRs and reviews must verify compliance with principles and sections above. Versioning follows semantic rules: MAJOR for principle/section changes, MINOR for additions, PATCH for clarifications. Compliance is reviewed quarterly.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: TODO(RATIFICATION_DATE): Set original ratification date if known | **Last Amended**: 2026-01-30
